@@ -42,11 +42,13 @@ function showList(array) {
 
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  
+// Filtra el array para obtener solo los elementos de tipo String
   const arrayFiltrado = strangeArray.filter((i) => typeof i === "string");
-  const arrayOrdenado = arrayFiltrado.sort();
+  // Ordena alfabéticamente los elementos del array filtrado
+  // utilizando la función de local compare (sensible a mayúsculas y minúsculas)
+  const arrayOrdenado = arrayFiltrado.sort((a, b) => a.localeCompare(b));
+  // local compare se utiliza para comparar dos cadenas de texto y determinar su orden relativo en función de las reglas de ordenamiento del idioma especificado. Esto es especialmente útil cuando se desea realizar una comparación sensible a las convenciones lingüísticas, incluyendo consideraciones como mayúsculas y minúsculas, caracteres acentuados y otros aspectos específicos de la lengua
   
-  // Muestra los elementos filtrados y ordenados en pantalla
   showList(arrayOrdenado);
 });
 
